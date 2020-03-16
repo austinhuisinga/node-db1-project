@@ -5,6 +5,7 @@ const db = require('./data/dbConfig.js');
 const router = express.Router();
 
 // GET all accounts
+
 router.get('/', (req, res) => {
   db.select('*')
     .from('accounts')
@@ -20,6 +21,7 @@ router.get('/', (req, res) => {
 });
 
 // GET all accounts by ID
+
 router.get('/:id', (req, res) => {
   db('accounts')
     .where({ id: req.params.id })
@@ -42,6 +44,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST a new account
+
 router.post('/', (req, res) => {
   const id = req.body;
 
@@ -59,6 +62,7 @@ router.post('/', (req, res) => {
 });
 
 // UPDATE an account
+
 router.put('/:id', (req, res) => {
   const changes = req.body;
 
@@ -85,6 +89,7 @@ router.put('/:id', (req, res) => {
 });
 
 // DELETE an account
+
 router.delete('/:id', (req, res) => {
   db('accounts')
     .where({ id: req.params.id })
